@@ -132,5 +132,9 @@ public class RecentDirectoriesProvider implements DynamicMenuProvider
 				menu.add(menuItems.elementAt(i));
 			}
 		}
+		JMenuItem menuItem = new JMenuItem(jEdit.getProperty("clear-recent-dirs.label"));
+		menuItem.addActionListener(e -> model.removeAllElements());
+		menu.addSeparator();
+		menu.add(menuItem);
 	} //}}}
 }
