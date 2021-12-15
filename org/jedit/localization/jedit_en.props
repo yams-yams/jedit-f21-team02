@@ -294,6 +294,8 @@ scroll-up-line.label=Line Scroll $Up
 scroll-down-line.label=Line Scroll $Down
 scroll-up-page.label=Page Scroll U$p
 scroll-down-page.label=Page Scroll D$own
+scroll-disable.label=Disable $Bars
+scroll-enable.label=$Enable Bars
 #}}}
 
 #{{{ Splitting menu

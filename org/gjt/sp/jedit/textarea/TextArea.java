@@ -440,6 +440,17 @@ public abstract class TextArea extends JPanel
 		}
 	} //}}}
 
+	public void disableScrollbar(){
+		horizontal.setVisible(false);
+		vertical.setVisible(false);
+	}
+
+
+	public void enableScrollbar(){
+		horizontal.setVisible(true);
+		vertical.setVisible(true);
+	}
+
 	//{{{ isEditable() method
 	/**
 	 * Returns true if this text area is editable, false otherwise.
@@ -1474,7 +1485,7 @@ public abstract class TextArea extends JPanel
 
 		if(getLineLength(caretLine) == 0)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -1617,7 +1628,7 @@ public abstract class TextArea extends JPanel
 		// We can't do the backward scan if start == 0
 		if(start == 0)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -1651,7 +1662,7 @@ backward_scan:	while(--start >= 0)
 		// Scan forward, matching that bracket
 		if(openBracket == '\0')
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 forward_scan:	do
@@ -2197,7 +2208,7 @@ forward_scan:	do
 	{
 		int offset = getScreenLineStartOffset(visibleLines >> 1);
 		if(offset == -1)
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 			setCaretPosition(offset);
 	} //}}}
@@ -2391,7 +2402,7 @@ loop:			for(int i = 0; i < text.length(); i++)
 		}
 
 		if(newCaret == -1)
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 		{
 			if(select)
@@ -2454,7 +2465,7 @@ loop:			for(int i = 0; i < text.length(); i++)
 			}
 			else
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 		}
@@ -2472,7 +2483,7 @@ loop:			for(int i = 0; i < text.length(); i++)
 				int line = displayManager.getNextVisibleLine(caretLine);
 				if(line == -1)
 				{
-					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 					return;
 				}
 				else
@@ -2510,7 +2521,7 @@ loop:			for(int i = 0; i < text.length(); i++)
 			int end = getLineEndOffset(caretLine) - 1;
 			if(caret == end)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			else
@@ -2647,7 +2658,7 @@ loop:		for(int i = lineNo + 1; i < getLineCount(); i++)
 			int nextLine = displayManager.getNextVisibleLine(caretLine);
 			if(nextLine == -1)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 
@@ -2694,7 +2705,7 @@ loop:		for(int i = getCaretPosition() - 1; i >= 0; i--)
 		}
 
 		if(newCaret == -1)
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 		{
 			if(select)
@@ -2733,7 +2744,7 @@ loop:		for(int i = getCaretPosition() - 1; i >= 0; i--)
 
 		if(caret == 0)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -2771,7 +2782,7 @@ loop:		for(int i = getCaretPosition() - 1; i >= 0; i--)
 			int line = displayManager.getPrevVisibleLine(caretLine);
 			if(line == -1)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			newCaret = getLineEndOffset(line) - 1;
@@ -2807,7 +2818,7 @@ loop:		for(int i = getCaretPosition() - 1; i >= 0; i--)
 			int start = getLineStartOffset(caretLine);
 			if(caret == start)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			else
@@ -2954,7 +2965,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if(lineStart == 0)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			else
@@ -2962,7 +2973,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 				int prevLine = displayManager.getPrevVisibleLine(caretLine);
 				if(prevLine == -1)
 				{
-					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 					return;
 				}
 
@@ -3369,7 +3380,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 			}
 		}
 
-		javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+		javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 	} //}}}
 
 	//}}}
@@ -3396,7 +3407,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3509,7 +3520,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3528,7 +3539,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if(lineStart == 0)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			_caret--;
@@ -3564,7 +3575,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3581,7 +3592,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3634,7 +3645,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3675,7 +3686,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3703,7 +3714,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3722,7 +3733,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if(lineStart + _caret == buffer.getLength())
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			_caret++;
@@ -3858,7 +3869,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		if(line == -1)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3894,7 +3905,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		if(nextFold == -1)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -3932,7 +3943,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		if(prevFold == -1)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4031,7 +4042,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		int[] lines = buffer.getFoldAtLine(caretLine);
 		if(lines[0] == 0 && lines[1] == buffer.getLineCount() - 1)
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 			displayManager.narrow(lines[0],lines[1]);
 	} //}}}
@@ -4045,7 +4056,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(getSelectionCount() != 1)
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4066,7 +4077,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 		if(!"explicit".equals(buffer.getStringProperty("folding")))
@@ -4118,7 +4129,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 		String comment = buffer.getContextSensitiveProperty(caret,"lineComment");
@@ -4164,7 +4175,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		if(!buffer.isEditable() || commentStart == null || commentEnd == null
 			|| commentStart.isEmpty() || commentEnd.isEmpty())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4223,7 +4234,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4308,7 +4319,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4342,7 +4353,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4374,7 +4385,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4390,7 +4401,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if (caret != -1)
 				setCaretPosition(caret);
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4413,7 +4424,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4429,7 +4440,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if (caret != -1)
 				setCaretPosition(caret);
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4451,7 +4462,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	public void removeTrailingWhiteSpace()
 	{
 		if(!buffer.isEditable())
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 		{
 			buffer.removeTrailingWhiteSpace(getSelectedLines());
@@ -4468,7 +4479,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	public void insertEnterAndIndent()
 	{
 		if(!isEditable())
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 		{
 			String autoIndent = buffer.getStringProperty("autoIndent");
@@ -4513,7 +4524,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4541,7 +4552,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
  	public void indentSelectedLines()
  	{
  		if(!buffer.isEditable())
- 			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+ 			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
  		else
  		{
 			buffer.indentLines(getSelectedLines());
@@ -4569,7 +4580,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	public void shiftIndentLeft()
 	{
 		if(!buffer.isEditable())
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 		{
 			buffer.shiftIndentLeft(getSelectedLines());
@@ -4584,7 +4595,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	public void shiftIndentRight()
 	{
 		if(!buffer.isEditable())
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 		else
 			buffer.shiftIndentRight(getSelectedLines());
 	} //}}}
@@ -4599,7 +4610,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -4628,7 +4639,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 				// Nothing to do if the caret is on the last line.
 				if (end > buffer.getLength())
 				{
-					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+					javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 					return;
 				}
 
@@ -4856,7 +4867,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(buffer == null)
 			return;
-		
+
 		if(buffer.getBooleanProperty("elasticTabstops"))
 		{
 			//call this only if it was previously off
@@ -5014,7 +5025,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 			painter.getWidth(),
 			0,
 			maxHorizontalScrollWidth + charWidth
-		);	
+		);
 		horizontal.setUnitIncrement(10);
 		horizontal.setBlockIncrement(painter.getWidth());
 	} //}}}
@@ -5881,7 +5892,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(!buffer.isEditable())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
@@ -5897,7 +5908,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 					if(startColumn == r.getEndColumn(buffer))
 					{
 						if(!forward && startColumn == 0)
-							javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+							javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 						else
 							tallCaretDelete(r,forward);
 					}
@@ -5912,7 +5923,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if(caret == buffer.getLength())
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			deleteNextCharacter(caret);
@@ -5921,7 +5932,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			if(caret == 0)
 			{
-				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+				javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 				return;
 			}
 			deletePrevCodePoint(caret);
@@ -6140,7 +6151,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		if(!buffer.isEditable() || commentStart == null || commentEnd == null
 			|| commentStart.isEmpty() || commentEnd.isEmpty())
 		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null);
 			return;
 		}
 
