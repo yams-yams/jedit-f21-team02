@@ -411,6 +411,37 @@ public class JEditTextArea extends TextArea
 		doWordCount(view,buffer.getText(0,buffer.getLength()));
 	} //}}}
 
+	public int wordCount(String text){
+		char[] chars = text.toCharArray();
+		int characters = chars.length;
+		int words = 0;
+		int lines = 1;
+
+		boolean word = true;
+		for (char aChar : chars)
+		{
+			switch (aChar)
+			{
+				case '\r':
+				case '\n':
+					lines++;
+				case ' ':
+				case '\t':
+					word = true;
+					break;
+				default:
+					if (word)
+					{
+						words++;
+						word = false;
+					}
+					break;
+			}
+		}
+
+		return words;
+	}
+
 	//{{{ Getters and setters
 
 	//{{{ getView() method
